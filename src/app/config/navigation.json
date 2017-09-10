@@ -1,0 +1,15 @@
+{
+  "items": [
+    {
+        "title":"Dashboard",
+        "route":"home",
+        "icon":"fa fa-lg fa-fw fa-home"
+    },
+    {
+        "title":"Apps Organic Daily",
+        "route":"organic-daily",
+        "icon":"fa fa-lg fa-fw fa-heartbeat"
+    }
+
+  ]
+}
