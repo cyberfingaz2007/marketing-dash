@@ -12,7 +12,7 @@ export default class Footer extends React.Component {
             <div className="page-footer">
                 <div className="row">
                     <div className="col-xs-12 col-sm-6">
-                        <span className="txt-color-white">SmartAdmin WebApp © 2013-2015</span>
+                        <span className="txt-color-white">Marketing Dashboard © 2017</span>
                     </div>
 
                     <div className="col-xs-6 col-sm-6 text-right hidden-xs">

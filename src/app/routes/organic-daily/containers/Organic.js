@@ -11,6 +11,8 @@
  import request from 'then-request'
  import {Stats, BigBreadcrumbs, WidgetGrid, JarvisWidget}  from '../../../components'
 
+ import Datatable from '../../../components/tables/Datatable'
+
  import ChartJsGraph from '../../../components/graphs/chartjs/ChartJsGraph'
  import FlotChart from '../../../components/graphs/flot/FlotChart'
 
@@ -68,8 +70,60 @@
                    <h2>Daily Data in Tables</h2>
                  </header>
                  <div>
-                   <div className="widget-body">
-                     <ChartJsGraph type="line" data={this.state['line-chart']}/>
+                   <div className="widget-body no-padding">
+                     <Datatable options={{
+                    ajax: 'assets/api/tables/datatables.filters.json',
+                    columns: [{data: "name"}, {data: "position"}, {data: "office"}, {data: "age"}, {data: "date"}, {data: "salary"}]
+                  }}
+                  filter={true} className="table table-striped table-bordered" width="100%">
+                  <thead>
+                  <tr>
+                    <th className="hasinput" style={{width: "17%"}}><input type="text"
+                                                                           className="form-control"
+                                                                           placeholder="Filter Name"/>
+                    </th>
+                    <th className="hasinput" style={{width: '18%'}}>
+                      <div className="input-group"><input className="form-control"
+                                                          placeholder="Filter Position"
+                                                          type="text"/> <span
+                        className="input-group-addon"> <span className="onoffswitch"> <input
+                        type="checkbox" name="start_interval" className="onoffswitch-checkbox"
+                        id="st3"/> <label className="onoffswitch-label" htmlFor="st3"> <span
+                        className="onoffswitch-inner" data-swchon-text="YES"
+                        data-swchoff-text="NO"/> <span className="onoffswitch-switch"/> </label> </span> </span>
+                      </div>
+                    </th>
+                    <th className="hasinput" style={{width: '16%'}}><input type="text"
+                                                                           className="form-control"
+                                                                           placeholder="Filter Office"/>
+                    </th>
+                    <th className="hasinput" style={{width: '17%'}}><input type="text"
+                                                                           className="form-control"
+                                                                           placeholder="Filter Age"/>
+                    </th>
+                    <th className="hasinput icon-addon"><input id="dateselect_filter" type="text"
+                                                               placeholder="Filter Date"
+                                                               className="form-control datepicker"
+                                                               data-dateformat="yy/mm/dd"/> <label
+                      htmlFor="dateselect_filter"
+                      className="glyphicon glyphicon-calendar no-margin padding-top-15"
+                      rel="tooltip" title="" data-original-title="Filter Date"/>
+                    </th>
+                    <th className="hasinput" style={{width: '16%'}}>
+                      <input type="text" className="form-control"
+                             placeholder="Filter Salary"/>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th data-class="expand">Name</th>
+                    <th>Position</th>
+                    <th data-hide="phone">Office</th>
+                    <th data-hide="phone">Age</th>
+                    <th data-hide="phone,tablet">Start date</th>
+                    <th data-hide="phone,tablet">Salary</th>
+                  </tr>
+                  </thead>
+                </Datatable>
                    </div>
                  </div>
                </JarvisWidget>
